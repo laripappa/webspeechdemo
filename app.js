@@ -16,7 +16,6 @@ btn.addEventListener('click', function() {
 speech.addEventListener('result', function(e) {
   console.log(e);
   var text = e.results[0][0].transcript;
-  
   switch(text) {
     case "検索":
       getSearch();
@@ -33,7 +32,7 @@ speech.addEventListener('result', function(e) {
     default:
       getTextContents(text);
   }
-  
+
 });
 
 
@@ -42,7 +41,7 @@ speech.addEventListener('result', function(e) {
 //検索
 function getSearch() {
     var iframe = document.createElement('iframe');
-    
+
     iframe.width = '400px';
     iframe.height = '400px';
     iframe.src = 'https://duckduckgo.com/';
@@ -52,14 +51,14 @@ function getSearch() {
 //ビデオ
 function getVideo() {
     var URL = '<iframe width="560" height="315" src="https://www.youtube.com/embed/TBEuMfNqv_k?rel=0&amp;controls=0&amp;showinfo=0;autoplay=1" frameborder="0" allowfullscreen></iframe>';
-    
+
     content.innerHTML = URL;
 }
 
 //ラジオ
 function getRadio() {
   var URL = '<iframe src="http://tunein.com/embed/player/s48940" style="width:50%;height:100px;" scrolling="no" frameborder="no"></iframe>';
-  
+
   content.innerHTML = URL;
 }
 
@@ -68,19 +67,19 @@ function getEventData() {
   // キーワードを「東京」に設定
   var baseURL = "https://api.atnd.org/events/?keyword=東京&format=jsonp&count=20&callback=callback";
   var script = document.createElement('script');
-  
+
   script.src = baseURL;
   document.body.appendChild(script);
-  
-  
+
+
   window.callback = function(data) {
     var ul = document.createElement('ul');
     content.appendChild(ul);
-    
+
     for(var item in data.events) {
       var li = document.createElement('li');
       var a = document.createElement('a');
-      
+
       a.href = data.events[item].event.event_url;
       a.textContent = data.events[item].event.title;
       a.target = "_blank";
@@ -88,7 +87,7 @@ function getEventData() {
       li.appendChild(a);
       ul.appendChild(li);
     }
-    
+
   };
 }
 
@@ -97,6 +96,3 @@ function getTextContents(text) {
   content.innerHTML = '<p>認識された言葉</p>' +
                    '<input type="text" value="' + text + '">';
 }
-
-
-
