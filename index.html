@@ -1,36 +1,42 @@
 <!doctype html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8" />
     <title>Iniad cHUB Seminar Demo</title>
     <style>
-      body {
-        padding: 15px 5px;
-        text-align: center;
-      }
-      li {
-        list-style-type: none;
-      }
-      #btn {
-        width: 150px;
-        height: 50px;
-        margin-bottom: 20px;
-      }
+        body {
+            padding: 15px 5px;
+            text-align: center;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        #btn {
+            width: 150px;
+            height: 50px;
+            margin-bottom: 20px;
+        }
     </style>
-  </head>
-  <body>
+</head>
+
+<body>
     <p>
-      <img src="./img/iniad.png"><br>
+        <img src="./img/iniad.png"><br>
     </p>
     <h3>Web Speech API by Google Chrome</h3>
     <button id="btn">音声認識開始</button>
+    <div id="status"></div>
     <p>
-      認識した単語が下に現れます<br>
-      <div id="content"></div>
+        認識した単語が下に現れます<br>
+        <div id="content"></div>
     </p>
     <div id="log">
-      Resutls will be displayed below.<br>
+        Resutls will be displayed below.<br>
     </div>
     <script src="app.js"></script>
-  </body>
+</body>
+
 </html>

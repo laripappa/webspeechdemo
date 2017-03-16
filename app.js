@@ -12,6 +12,37 @@ btn.addEventListener('click', function() {
   speech.start();
 });
 
+
+// webkitSpeechRecognitionのイベントハンドラ
+// speech.onsoundstart = function(){
+//   document.getElementById('status').innerHTML = "認識中";
+// };
+// speech.onnomatch = function(){
+//   document.getElementById('status').innerHTML = "もう一度試してください";
+// };
+// speech.onerror= function(){
+//   document.getElementById('status').innerHTML = "エラー";
+// };
+// speech.onsoundend = function(){
+//   document.getElementById('status').innerHTML = "停止中";
+// };
+
+speech.addEventListener("sountstart", function(){
+  document.getElementById('status').innerHTML = "認識中";
+});
+
+speech.addEventListener("nomatch",function(){
+  document.getElementById('status').innerHTML = "もう一度試してください";
+});
+
+speech.addEventListener("error",function(){
+  document.getElementById('status').innerHTML = "エラー";
+});
+
+speech.addEventListener("soundstart",function(){
+  document.getElementById('status').innerHTML = "認識中";
+});
+
 //認識されたテキストを使って処理を分岐
 speech.addEventListener('result', function(e) {
   console.log(e);
